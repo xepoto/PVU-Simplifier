@@ -33,6 +33,18 @@ function addLE(dataName, result) {
    }
 }
 
+var currentPage = document.querySelector('p.currentPage');
+var observer = new MutationObserver(function () {
+   setTimeout(function () {
+      console.log('detectou')
+      addLE('data-v-4b7e9996', '/Hour')
+   }, 1000)
+})
+observer.observe(currentPage, { subtree: true, characterData: true })
+
+
+
+/* 
 // Call the addLE everytime currentPage changes.
 browser.tabs.onUpdated.addListener(function (tabId, changeInfo) {
    if (changeInfo.status == "complete") {
@@ -48,7 +60,7 @@ browser.tabs.onUpdated.addListener(function (tabId, changeInfo) {
       }
    }
 })
-
+*/
 
 /*
 calling function with mouse movement
