@@ -33,34 +33,29 @@ function addLE(dataName, result) {
    }
 }
 
-var currentPage = document.querySelector('p.currentPage');
-var observer = new MutationObserver(function () {
-   setTimeout(function () {
-      console.log('detectou')
-      addLE('data-v-4b7e9996', '/Hour')
-   }, 1000)
-})
-observer.observe(currentPage, { subtree: true, characterData: true })
+function detectPageChange() {
+   console.log('antes do currentpage')
+   var currentPage = document.querySelector('p.currentPage');
+   var observer = new MutationObserver(function () {
+      setTimeout(function () {
+         console.log('detectou');
+         addLE('data-v-4b7e9996', '/Hour');
+      }, 1000)
+   })
+   console.log('antes do observer');
+   observer.observe(currentPage, { subtree: true, characterData: true })
+   console.log('depois do observer');
+}
 
-
-
-/* 
-// Call the addLE everytime currentPage changes.
-browser.tabs.onUpdated.addListener(function (tabId, changeInfo) {
-   if (changeInfo.status == "complete") {
-      function changeListener() {
-         var currentPage = document.querySelector('p.currentPage');
-         var observer = new MutationObserver(function () {
-            setTimeout(function () {
-               console.log('detectou')
-               addLE('data-v-4b7e9996', '/Hour')
-            }, 1000)
-         })
-         observer.observe(currentPage, { subtree: true, characterData: true })
-      }
-   }
-})
-*/
+console.log('antes do eventlistener')
+window.addEventListener("load", function(event) {
+   console.log("Todos os recursos terminaram o carregamento!");
+   detectPageChange();
+   console.log('detect ativado')
+   addLE('data-v-4b7e9996', '/Hour');
+   console.log('addle chamado')
+ });
+ console.log('depois do eventlistener')
 
 /*
 calling function with mouse movement
