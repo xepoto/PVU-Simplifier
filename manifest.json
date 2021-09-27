@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "PVU LE Converter",
+  "version": "1.0",
+
+  "description": "Simple LE converter.",
+  "icons": {
+    "48": "icons/pvu_icon-48.png",
+    "96": "icons/pvu_icon-96.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "management",
+    "idle",
+    "pageCapture",
+    "sessions",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation"
+  ],
+  "content_scripts": [{
+    "matches": ["*://*.plantvsundead.com/*"],
+    "js": ["content.js"]
+  }],
+  "browser_action": {
+    "default_icon": "icons/pvu_icon-32.png",
+    "default_title": "LE Converter",
+    "default_popup": "popup/popup.html"
+  }
+}
