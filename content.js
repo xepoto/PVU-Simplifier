@@ -32,35 +32,8 @@ function addLE(dataName, result) {
       elems[index].prepend(div)
    }
 }
-/* 
-// Call the addLE everytime page changes.
-function changeListener () {
-var currentPage = document.querySelector('p.currentPage');
-var observer = new MutationObserver(function () {
-   setTimeout(function () {
-      console.log('detectou')
-      addLE('data-v-4b7e9996', '/Hour')
-   }, 1000)
-})
-observer.observe(currentPage, { subtree: true, characterData: true })
-} */
 
-/* changeListener()
-
-document.addEventListener("DOMContentLoaded", function () {
-   console.log('carregou!')
-   changeListener();
-}); */
-
-var currentPage = document.querySelector('p.currentPage');
-var observer = new MutationObserver(function () {
-   setTimeout(function () {
-      console.log('detectou')
-      addLE('data-v-4b7e9996', '/Hour')
-   }, 1000)
-})
-observer.observe(currentPage, { subtree: true, characterData: true })
-
+// Call the addLE everytime currentPage changes.
 browser.tabs.onUpdated.addListener(function (tabId, changeInfo) {
    if (changeInfo.status == "complete") {
       function changeListener() {
@@ -76,9 +49,15 @@ browser.tabs.onUpdated.addListener(function (tabId, changeInfo) {
    }
 })
 
-/*  var pageBody = document.querySelector('body');
+
+/*
+calling function with mouse movement
+
+var pageBody = document.querySelector('body');
 pageBody.addEventListener("mousemove", () => {
    console.log('opa')
    addLE('data-v-4b7e9996', '/Hour');
-}) */
+})
+
+*/
 
