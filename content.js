@@ -1,8 +1,5 @@
-
-
 // Function that converts the LE and add the div to each item.
 function addLE(dataName, result) {
-
    // Remove all the old converted LE from the previous page.
    document.querySelectorAll('.converted_LE').forEach(e => e.remove());
    // Converting the value and preparing it to insert in the div.
@@ -11,14 +8,12 @@ function addLE(dataName, result) {
    for (; index < length; index++) {
       var num = elems[index].innerHTML.match(/\d+/g).join('/').substring(9);
       var numOp = eval(num);
-
       // For some reason the node array we get from the elems comes
       // with some undefined strings. This is to get rid of them.
       if (numOp === undefined) {
          continue;
       }
       var numFinal = numOp.toFixed(1)
-
       // Creating, styling and positioning the div with the converted LE.
       var div = document.createElement('div')
       div.innerHTML = numFinal + result
@@ -32,39 +27,28 @@ function addLE(dataName, result) {
       elems[index].prepend(div)
    }
 }
-
+// Function that detects when page change (to update LE values).
 function detectPageChange() {
-   console.log('antes do currentpage')
    var currentPage = document.querySelector('p.currentPage');
    var observer = new MutationObserver(function () {
       setTimeout(function () {
-         console.log('detectou');
          addLE('data-v-4b7e9996', '/Hour');
       }, 1000)
    })
-   console.log('antes do observer');
    observer.observe(currentPage, { subtree: true, characterData: true })
-   console.log('depois do observer');
+}
+// Function that initialize everything by checking if page contains element.
+function checkLoop() {
+   var currentPage = document.querySelector('p.currentPage');
+   setTimeout(function () {
+      if (typeof (currentPage) == 'undefined' || currentPage == null) {
+         checkLoop()
+      }
+      else {
+         addLE('data-v-4b7e9996', '/Hour');
+         detectPageChange();
+      }
+   }, 1000)
 }
 
-console.log('antes do eventlistener')
-window.addEventListener("load", function(event) {
-   console.log("Todos os recursos terminaram o carregamento!");
-   detectPageChange();
-   console.log('detect ativado')
-   addLE('data-v-4b7e9996', '/Hour');
-   console.log('addle chamado')
- });
- console.log('depois do eventlistener')
-
-/*
-calling function with mouse movement
-
-var pageBody = document.querySelector('body');
-pageBody.addEventListener("mousemove", () => {
-   console.log('opa')
-   addLE('data-v-4b7e9996', '/Hour');
-})
-
-*/
-
+checkLoop()
