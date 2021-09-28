@@ -31,15 +31,15 @@ function addHourlyLE(dataName) {
 }
 
 // Function that detects when page change (to update LE values).
-function detectPageChange() {
-   var currentPage = document.querySelector('p.currentPage');
+function detectChange(elementSelector) {
+   var element = document.querySelector(elementSelector);
    var observer = new MutationObserver(function () {
       setTimeout(function () {
          deleteOld();
          addHourlyLE('data-v-4b7e9996');
       }, 1000)
    })
-   observer.observe(currentPage, { subtree: true, characterData: true })
+   observer.observe(element, { subtree: true, characterData: true })
 }
 
 // Function that initialize everything by checking if page contains element.
@@ -52,7 +52,8 @@ function checkLoop() {
       else {
          deleteOld();
          addHourlyLE('data-v-4b7e9996');
-         detectPageChange();
+         detectChange('p.currentPage');
+         detectChange('[data-v-6baa3172]');
       }
    }, 1000)
 }
