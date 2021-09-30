@@ -1,23 +1,55 @@
 html,
 body {
   margin: 10px;
-  width: 200px;
+  width: 350px;
+  background-color: gray;
+}
+#content {
+  width: 300px;
+  word-wrap: break-word;
+
+}
+p {
+  font-family: Verdana;
+
+}
+.pvu_icon {
+  width: 12px;
+}
+.logo{
+  width: 20px;
+  margin-bottom: -5px;
 }
 
-#calc {
-  background-color: #5df737;
-  border-radius: 10px;
-  width: 80%;
-  padding: 4px;
-  font-size: 1.5em;
+#infos{
   text-align: center;
-  cursor: pointer;
-}
 
-#calc:hover {
-  background-color: #317e1e;
 }
-
-#calc:active {
-  background-color: #072500;
+#bsc {
+  width: 20px;
+  align-content: center;
+  padding-bottom: 0 !important;
+}
+.column {
+  float: left;
+}
+.row{
+  margin-top:-10px
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#social {
+  padding-top:5px;
+  align-content: center;
+}
+#wallet{
+  text-align: center;
+  width: 50% !important;
+}
+.info {
+  padding-left: 25px;
+  font-size: 11px !important;
 }

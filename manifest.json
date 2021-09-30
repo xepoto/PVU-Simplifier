@@ -1,24 +1,16 @@
 {
   "manifest_version": 2,
-  "name": "PVU LE Converter",
-  "version": "1.0",
+  "name": "PVU Simplifier",
+  "version": "0.1.1",
 
-  "description": "Simple LE converter.",
+  "description": "Simple tool that convert LE values to help using the Marketplace.",
   "icons": {
     "48": "icons/pvu_icon-48.png",
     "96": "icons/pvu_icon-96.png"
   },
 
   "permissions": [
-    "activeTab",
-    "storage",
-    "management",
-    "idle",
-    "pageCapture",
-    "sessions",
-    "webRequest",
-    "webRequestBlocking",
-    "webNavigation"
+    "activeTab"
   ],
   "content_scripts": [{
     "matches": ["*://*.plantvsundead.com/*"],
@@ -26,7 +18,7 @@
   }],
   "browser_action": {
     "default_icon": "icons/pvu_icon-32.png",
-    "default_title": "LE Converter",
+    "default_title": "LE Simplifier",
     "default_popup": "popup/popup.html"
   }
 }
