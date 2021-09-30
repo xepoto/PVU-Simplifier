@@ -6,4 +6,5 @@ Remember to click the icon to see details.
 Download now
 Google Chrome: https://chrome.google.com/webstore/detail/pvu-simplifier/ifehgnpnhlmlakhdebkehopfgcidgeno
 
-![print-pvu](https://user-images.githubusercontent.com/83036209/135506645-75fcd995-40e2-471a-8e04-bfc4501ebd6d.PNG)
+
+![pvu_screen](https://user-images.githubusercontent.com/83036209/135520192-38a59f2a-6408-44e5-8976-c3c46df72334.PNG)
